@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulaire de démarrage — NutriWell by Clémence</title>
+<meta name="description" content="Formulaire de démarrage pour ton accompagnement NutriWell.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--rc:#DB6350;--rc-d:#c4503e;--rb:#ECB5B0;--rbp:#faf0ef;--cr:#FFF9F7;--ww:#FFFCFB;--td:#2D2326;--tm:#5C4A50;--tl:#8A7278;--w:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;color:var(--td);background:var(--ww);line-height:1.7}
+nav{padding:16px 40px;display:flex;justify-content:center}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:var(--rc);text-decoration:none}
+.nav-logo span{font-family:'Open Sans',sans-serif;font-weight:400;color:var(--tl);font-size:.85rem;margin-left:6px}
+.hero{padding:40px 24px 32px;text-align:center;background:linear-gradient(175deg,var(--cr) 0%,var(--rbp) 50%,var(--ww) 100%)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:600;color:var(--td);margin-bottom:12px}
+.hero p{font-size:.95rem;color:var(--tm);font-weight:300;max-width:520px;margin:0 auto;line-height:1.8}
+.form-wrap{max-width:640px;margin:0 auto;padding:0 24px 80px}
+.bloc{background:var(--w);border-radius:20px;box-shadow:0 4px 24px rgba(219,99,80,.08);padding:36px 32px;margin-bottom:24px}
+.bloc-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:var(--rc);margin-bottom:4px}
+.bloc-sub{font-size:.82rem;color:var(--tl);font-weight:300;font-style:italic;margin-bottom:24px}
+.fg{margin-bottom:18px}
+.fg label{display:block;font-size:.85rem;font-weight:500;color:var(--td);margin-bottom:5px}
+.fg label .req{color:var(--rc)}
+.fg input,.fg textarea,.fg select{width:100%;padding:11px 14px;border:1.5px solid rgba(219,99,80,.12);border-radius:10px;font-family:'Open Sans',sans-serif;font-size:.9rem;color:var(--td);background:var(--ww);outline:none;transition:border .3s}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--rc);box-shadow:0 0 0 3px rgba(219,99,80,.06)}
+.fg textarea{resize:vertical;min-height:80px}
+.fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A7278' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cb-group{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.cb-group label{display:flex;align-items:flex-start;gap:8px;font-size:.88rem;font-weight:300;color:var(--tm);cursor:pointer;line-height:1.5}
+.cb-group input[type="checkbox"],.cb-group input[type="radio"]{accent-color:var(--rc);margin-top:4px;flex-shrink:0}
+.sep{border:none;border-top:1px solid rgba(219,99,80,.08);margin:28px 0}
+.btn-submit{width:100%;padding:16px;background:var(--rc);color:var(--w);border:none;border-radius:50px;font-family:'Open Sans',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;transition:all .3s;margin-top:8px;box-shadow:0 4px 20px rgba(219,99,80,.25)}
+.btn-submit:hover{background:var(--rc-d);transform:translateY(-1px);box-shadow:0 8px 32px rgba(219,99,80,.35)}
+.note{text-align:center;font-size:.78rem;color:var(--tl);font-weight:300;margin-top:14px;line-height:1.6}
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--rc);z-index:999;transition:width .3s}
+footer{text-align:center;padding:24px}
+footer p{font-size:.78rem;color:var(--tl);font-weight:300}
+footer a{color:var(--rc);text-decoration:none}
+@media(max-width:768px){nav{padding:12px 20px}.bloc{padding:28px 20px}.row{grid-template-columns:1fr}.hero{padding:24px 20px 20px}}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<nav><a href="https://nutriwellcoaching.github.io/formulaire/" class="nav-logo">NutriWell <span>by Clémence</span></a></nav>
+<div class="hero">
+<h1>Bienvenue dans ton accompagnement ✨</h1>
+<p>Ce formulaire est la première étape de notre collaboration. Plus tu es précise et honnête, plus ton accompagnement sera juste, personnalisé et efficace. Prends 25 minutes. Il n'y a pas de bonne ou mauvaise réponse — juste TA réalité.</p>
+</div>
+<div class="form-wrap">
+<form action="https://formspree.io/f/maqvnzrd" method="POST">
+<input type="hidden" name="_subject" value="Nouveau formulaire de démarrage NutriWell">
+<input type="hidden" name="_next" value="https://nutriwellcoaching.github.io/formulaire/merci.html">
+
+<!-- BLOC A -->
+<div class="bloc">
+<p class="bloc-title">A · Identité & Corps</p>
+<p class="bloc-sub">Pour calculer précisément tes besoins énergétiques.</p>
+<div class="row"><div class="fg"><label>Prénom <span class="req">*</span></label><input type="text" name="prenom" required></div><div class="fg"><label>Nom <span class="req">*</span></label><input type="text" name="nom" required></div></div>
+<div class="row"><div class="fg"><label>Âge <span class="req">*</span></label><input type="number" name="age" required min="16" max="99"></div><div class="fg"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div></div>
+<div class="fg"><label>Téléphone (WhatsApp) <span class="req">*</span></label><input type="tel" name="telephone" required></div>
+<hr class="sep">
+<div class="row"><div class="fg"><label>Taille (cm) <span class="req">*</span></label><input type="number" name="taille_cm" required></div><div class="fg"><label>Poids actuel (kg) <span class="req">*</span></label><input type="number" name="poids_actuel" required step="0.1"></div></div>
+<div class="fg"><label>Date de la dernière pesée <span class="req">*</span></label><input type="date" name="date_pesee" required></div>
+<div class="row"><div class="fg"><label>Tour de taille (cm)</label><input type="number" name="tour_taille" step="0.1"></div><div class="fg"><label>Tour de hanches (cm)</label><input type="number" name="tour_hanches" step="0.1"></div></div>
+<div class="row"><div class="fg"><label>Tour de cuisse (cm)</label><input type="number" name="tour_cuisse" step="0.1"></div><div class="fg"><label>Tour de poitrine (cm)</label><input type="number" name="tour_poitrine" step="0.1"></div></div>
+<div class="fg"><label>Tour de bras (cm)</label><input type="number" name="tour_bras" step="0.1"></div>
+<hr class="sep">
+<div class="fg"><label>Comment a évolué ton poids ces 2 dernières années ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="evolution_poids" value="stable" required> Stable (variations &lt; 3 kg)</label><label><input type="radio" name="evolution_poids" value="yoyo"> Yo-yo (régimes répétés, +/- 5 kg plusieurs fois)</label><label><input type="radio" name="evolution_poids" value="hausse"> En hausse continue</label><label><input type="radio" name="evolution_poids" value="baisse"> En baisse continue</label></div></div>
+<div class="row"><div class="fg"><label>Poids le plus bas adulte (kg)</label><input type="number" name="poids_min" step="0.1"></div><div class="fg"><label>Poids le plus haut adulte (kg)</label><input type="number" name="poids_max" step="0.1"></div></div>
+<hr class="sep">
+<div class="fg"><label>Acceptes-tu de m'envoyer des photos de suivi ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="photos" value="oui" required> Oui, sans souci</label><label><input type="radio" name="photos" value="oui_malaise"> Oui mais ça me met mal à l'aise (on en reparlera)</label><label><input type="radio" name="photos" value="sport"> Mensurations + photos en tenue de sport uniquement</label><label><input type="radio" name="photos" value="non"> Non, uniquement mensurations</label></div></div>
+<div class="fg"><label>Tu sais prendre tes mensurations seule ?</label>
+<div class="cb-group"><label><input type="radio" name="mensurations" value="oui"> Oui</label><label><input type="radio" name="mensurations" value="non"> Non, j'aurai besoin que tu me guides</label></div></div>
+</div>
+
+<!-- BLOC B -->
+<div class="bloc">
+<p class="bloc-title">B · Activité & Mouvement</p>
+<p class="bloc-sub">Pour calculer ton métabolisme réel — pas une moyenne.</p>
+<div class="fg"><label>Profession <span class="req">*</span></label><input type="text" name="profession" required></div>
+<div class="fg"><label>Ton poste au quotidien <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="type_poste" value="sedentaire" required> Sédentaire (assise toute la journée)</label><label><input type="radio" name="type_poste" value="mixte"> Mixte (assise avec déplacements)</label><label><input type="radio" name="type_poste" value="active"> Active debout (vendeuse, infirmière...)</label><label><input type="radio" name="type_poste" value="physique"> Très physique (BTP, restauration...)</label></div></div>
+<div class="fg"><label>Horaires de travail</label>
+<div class="cb-group"><label><input type="radio" name="horaires" value="fixes_bureau"> Fixes — bureau classique</label><label><input type="radio" name="horaires" value="fixes_autres"> Fixes — autres</label><label><input type="radio" name="horaires" value="variables"> Variables / décalés</label><label><input type="radio" name="horaires" value="nuit"> Travail de nuit ou posté</label></div></div>
+<div class="fg"><label>Moyenne de pas par jour <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="pas_jour" value="moins3000" required> Moins de 3 000 pas</label><label><input type="radio" name="pas_jour" value="3000-6000"> 3 000 à 6 000 pas</label><label><input type="radio" name="pas_jour" value="6000-9000"> 6 000 à 9 000 pas</label><label><input type="radio" name="pas_jour" value="9000-12000"> 9 000 à 12 000 pas</label><label><input type="radio" name="pas_jour" value="plus12000"> Plus de 12 000 pas</label><label><input type="radio" name="pas_jour" value="inconnu"> Je ne sais pas</label></div></div>
+<hr class="sep">
+<div class="fg"><label>Pratiques-tu une activité sportive régulière ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="sport" value="oui" required> Oui</label><label><input type="radio" name="sport" value="non"> Non, pas en ce moment</label><label><input type="radio" name="sport" value="reprendre"> Je veux m'y remettre</label></div></div>
+<div class="fg"><label>Si oui, quel(s) sport(s), fréquence et durée ?</label><textarea name="sport_detail" placeholder="Ex : Musculation 3×/sem, 60 min..."></textarea></div>
+<div class="fg"><label>Depuis combien de temps ?</label>
+<div class="cb-group"><label><input type="radio" name="sport_anciennete" value="moins6mois"> Moins de 6 mois</label><label><input type="radio" name="sport_anciennete" value="6mois-2ans"> 6 mois à 2 ans</label><label><input type="radio" name="sport_anciennete" value="plus2ans"> Plus de 2 ans</label><label><input type="radio" name="sport_anciennete" value="arrete"> J'ai arrêté</label><label><input type="radio" name="sport_anciennete" value="na"> Non applicable</label></div></div>
+</div>
+
+<!-- BLOC C -->
+<div class="bloc">
+<p class="bloc-title">C · Objectif & Pourquoi Profond</p>
+<p class="bloc-sub">Le pourquoi profond, c'est ce qui te fera tenir.</p>
+<div class="fg"><label>Quel est ton objectif principal ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="objectif" value="perte_gras" required> Perte de gras</label><label><input type="radio" name="objectif" value="recomposition"> Recomposition corporelle</label><label><input type="radio" name="objectif" value="lean_bulk"> Lean bulk (prise de muscle)</label><label><input type="radio" name="objectif" value="maintien"> Maintien & rééquilibrage</label><label><input type="radio" name="objectif" value="evenement"> Préparation événement</label><label><input type="radio" name="objectif" value="autre"> Autre</label></div></div>
+<div class="row"><div class="fg"><label>Poids souhaité (kg)</label><input type="number" name="poids_souhaite" step="0.1"></div><div class="fg"><label>Délai souhaité (mois)</label><input type="number" name="delai_mois"></div></div>
+<hr class="sep">
+<div class="fg"><label>Qu'est-ce qui t'a fait passer à l'action ? <span class="req">*</span></label><textarea name="declencheur" required placeholder="Un essayage, une photo, une remarque, un déclic..."></textarea></div>
+<div class="fg"><label>« Ce que je ne supporte plus dans mon corps ou ma vie, c'est... » <span class="req">*</span></label><textarea name="ne_supporte_plus" required></textarea></div>
+<div class="fg"><label>Quand tu auras atteint ton objectif, qu'est-ce que tu pourras faire / porter / vivre ? <span class="req">*</span></label><textarea name="vision_futur" required></textarea></div>
+<div class="fg"><label>Événement qui influence ta démarche ?</label>
+<div class="cb-group"><label><input type="checkbox" name="evenement[]" value="mariage"> Mariage</label><label><input type="checkbox" name="evenement[]" value="vacances"> Vacances / été</label><label><input type="checkbox" name="evenement[]" value="competition"> Compétition sportive</label><label><input type="checkbox" name="evenement[]" value="bebe"> Projet bébé</label><label><input type="checkbox" name="evenement[]" value="retrouvailles"> Anniversaire ou retrouvailles</label><label><input type="checkbox" name="evenement[]" value="aucun"> Aucun, je veux juste me retrouver</label></div></div>
+<div class="fg"><label>Si événement, à quelle date ?</label><input type="text" name="date_evenement" placeholder="Ex : Septembre 2026"></div>
+<div class="row"><div class="fg"><label>Motivation (1-10) <span class="req">*</span></label><input type="number" name="motivation" required min="1" max="10"></div><div class="fg"><label>Capacité ressentie (1-10) <span class="req">*</span></label><input type="number" name="capacite" required min="1" max="10"></div></div>
+</div>
+
+<!-- BLOC D -->
+<div class="bloc">
+<p class="bloc-title">D · Santé, Cycle & Traitements</p>
+<p class="bloc-sub">Pour adapter le plan à ton corps, pas à un corps moyen.</p>
+<div class="fg"><label>Pathologies diagnostiquées <span class="req">*</span></label>
+<div class="cb-group"><label><input type="checkbox" name="pathologies[]" value="aucune"> Aucune</label><label><input type="checkbox" name="pathologies[]" value="diabete"> Diabète</label><label><input type="checkbox" name="pathologies[]" value="hypertension"> Hypertension</label><label><input type="checkbox" name="pathologies[]" value="cholesterol"> Cholestérol élevé</label><label><input type="checkbox" name="pathologies[]" value="hypothyroidie"> Hypothyroïdie</label><label><input type="checkbox" name="pathologies[]" value="hyperthyroidie"> Hyperthyroïdie</label><label><input type="checkbox" name="pathologies[]" value="sopk"> SOPK</label><label><input type="checkbox" name="pathologies[]" value="endometriose"> Endométriose</label><label><input type="checkbox" name="pathologies[]" value="digestif"> Troubles digestifs</label><label><input type="checkbox" name="pathologies[]" value="cardiaque"> Problème cardiaque</label><label><input type="checkbox" name="pathologies[]" value="depression"> Dépression / anxiété</label></div></div>
+<div class="fg"><label>Autre pathologie ou précision</label><input type="text" name="pathologie_autre"></div>
+<div class="fg"><label>Soucis articulaires ou physiques en cours</label><textarea name="soucis_articulaires" placeholder="Genou, dos, épaule, sciatique..."></textarea></div>
+<hr class="sep">
+<div class="fg"><label>Médicaments en cours</label><textarea name="medicaments" placeholder="Aucun, ou liste tes médicaments"></textarea></div>
+<div class="fg"><label>Compléments alimentaires en cours</label><textarea name="complements" placeholder="Aucun, ou liste tes compléments"></textarea></div>
+<div class="fg"><label>As-tu un bilan sanguin récent (< 12 mois) ?</label>
+<div class="cb-group"><label><input type="radio" name="bilan_sang" value="oui_envoyer"> Oui — je peux te l'envoyer</label><label><input type="radio" name="bilan_sang" value="oui_pas_partager"> Oui mais je préfère ne pas le partager</label><label><input type="radio" name="bilan_sang" value="non_possible"> Non, mais je peux en faire un</label><label><input type="radio" name="bilan_sang" value="non"> Non et je ne souhaite pas en faire</label></div></div>
+<hr class="sep">
+<div class="fg"><label>Ton cycle est-il régulier ?</label>
+<div class="cb-group"><label><input type="radio" name="cycle" value="regulier"> Oui, très régulier</label><label><input type="radio" name="cycle" value="globalement"> Globalement régulier</label><label><input type="radio" name="cycle" value="irregulier"> Irrégulier</label><label><input type="radio" name="cycle" value="absent"> Absent (aménorrhée)</label><label><input type="radio" name="cycle" value="menopause"> Ménopause / périménopause</label></div></div>
+<div class="row"><div class="fg"><label>Durée moyenne du cycle (jours)</label><input type="number" name="duree_cycle"></div><div class="fg"><label>1er jour des dernières règles</label><input type="date" name="date_regles"></div></div>
+<div class="fg"><label>Contraception actuelle</label>
+<div class="cb-group"><label><input type="radio" name="contraception" value="aucune"> Aucune</label><label><input type="radio" name="contraception" value="pilule"> Pilule</label><label><input type="radio" name="contraception" value="sterilet_h"> Stérilet hormonal</label><label><input type="radio" name="contraception" value="sterilet_c"> Stérilet cuivre</label><label><input type="radio" name="contraception" value="implant"> Implant</label><label><input type="radio" name="contraception" value="autre"> Autre</label></div></div>
+<div class="fg"><label>Symptômes avant/pendant les règles</label>
+<div class="cb-group"><label><input type="checkbox" name="spm[]" value="fatigue"> Fatigue intense</label><label><input type="checkbox" name="spm[]" value="fringales"> Fringales sucrées</label><label><input type="checkbox" name="spm[]" value="retention"> Rétention d'eau</label><label><input type="checkbox" name="spm[]" value="douleurs"> Douleurs intenses</label><label><input type="checkbox" name="spm[]" value="humeur"> Troubles de l'humeur (SPM)</label><label><input type="checkbox" name="spm[]" value="aucun"> Aucun symptôme</label></div></div>
+<div class="fg"><label>Es-tu enceinte ou allaitante ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="enceinte" value="non" required> Non</label><label><input type="radio" name="enceinte" value="enceinte"> Enceinte</label><label><input type="radio" name="enceinte" value="allaitante"> Allaitante</label><label><input type="radio" name="enceinte" value="projet_bebe"> Projet bébé dans les 6-12 mois</label></div></div>
+<hr class="sep">
+<div class="fg"><label>Allergies ou intolérances alimentaires</label>
+<div class="cb-group"><label><input type="checkbox" name="allergies[]" value="aucune"> Aucune</label><label><input type="checkbox" name="allergies[]" value="lactose"> Lactose</label><label><input type="checkbox" name="allergies[]" value="gluten"> Gluten</label><label><input type="checkbox" name="allergies[]" value="fodmap"> FODMAP</label><label><input type="checkbox" name="allergies[]" value="noix"> Fruits à coque</label><label><input type="checkbox" name="allergies[]" value="oeufs"> Œufs</label></div></div>
+<div class="fg"><label>Autre allergie ou aliments qui causent des inconforts</label><input type="text" name="allergie_autre"></div>
+</div>
+
+<!-- BLOC E -->
+<div class="bloc">
+<p class="bloc-title">E · Alimentation Actuelle</p>
+<p class="bloc-sub">Pour partir de TA réalité, pas d'un idéal théorique.</p>
+<div class="row"><div class="fg"><label>Nombre de repas / jour <span class="req">*</span></label><input type="number" name="nb_repas" required min="1" max="6"></div><div class="fg"><label>Nombre de collations / jour</label><input type="number" name="nb_collations" min="0" max="5"></div></div>
+<div class="row"><div class="fg"><label>Heure de réveil</label><input type="time" name="heure_reveil"></div><div class="fg"><label>Heure de coucher</label><input type="time" name="heure_coucher"></div></div>
+<div class="fg"><label>Le matin, tu es plutôt : <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="matin" value="sucre" required> Sucré (tartines, céréales, fruits)</label><label><input type="radio" name="matin" value="sale"> Salé (œufs, fromage, jambon)</label><label><input type="radio" name="matin" value="varier"> Indifférente, j'aime varier</label><label><input type="radio" name="matin" value="saute"> Je saute le petit-déjeuner</label><label><input type="radio" name="matin" value="pas_faim"> Je n'ai pas faim le matin</label></div></div>
+<hr class="sep">
+<p style="font-size:.88rem;color:var(--tm);font-weight:400;margin-bottom:12px;">Décris une journée RÉCENTE et RÉELLE (pas une journée idéale). Sois précise : quantités, boissons, grignotages.</p>
+<div class="fg"><label>Petit-déjeuner <span class="req">*</span></label><textarea name="pdj" required></textarea></div>
+<div class="fg"><label>Collation matin</label><textarea name="collation_matin" placeholder="Si applicable"></textarea></div>
+<div class="fg"><label>Déjeuner <span class="req">*</span></label><textarea name="dejeuner" required></textarea></div>
+<div class="fg"><label>Collation après-midi</label><textarea name="collation_apm" placeholder="Si applicable"></textarea></div>
+<div class="fg"><label>Dîner <span class="req">*</span></label><textarea name="diner" required></textarea></div>
+<div class="fg"><label>Grignotages / soirée — TOUT ce qui est passé dans la bouche</label><textarea name="grignotages_detail" placeholder="Sois honnête, je ne juge rien"></textarea></div>
+<hr class="sep">
+<div class="fg"><label>Quantité d'eau par jour <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="eau" value="moins1l" required> Moins d'1 L</label><label><input type="radio" name="eau" value="1-1.5"> 1 à 1,5 L</label><label><input type="radio" name="eau" value="1.5-2"> 1,5 à 2 L</label><label><input type="radio" name="eau" value="2-2.5"> 2 à 2,5 L</label><label><input type="radio" name="eau" value="plus2.5"> Plus de 2,5 L</label></div></div>
+<div class="fg"><label>Boissons consommées régulièrement</label>
+<div class="cb-group"><label><input type="checkbox" name="boissons[]" value="cafe"> Café</label><label><input type="checkbox" name="boissons[]" value="the"> Thé / infusions</label><label><input type="checkbox" name="boissons[]" value="sodas"> Sodas / sodas light</label><label><input type="checkbox" name="boissons[]" value="jus"> Jus de fruits</label><label><input type="checkbox" name="boissons[]" value="alcool"> Alcool</label><label><input type="checkbox" name="boissons[]" value="eau"> Eau uniquement</label></div></div>
+<div class="fg"><label>Si café, combien par jour ?</label><input type="text" name="cafe_qte" placeholder="Ex : 3 par jour"></div>
+<div class="fg"><label>Si alcool, type et fréquence ?</label><input type="text" name="alcool_detail" placeholder="Ex : 2 verres de vin/semaine"></div>
+<hr class="sep">
+<div class="fg"><label>Tu grignotes en dehors des repas ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="grignotage" value="jamais" required> Jamais ou rarement</label><label><input type="radio" name="grignotage" value="parfois"> Parfois (1-2× par semaine)</label><label><input type="radio" name="grignotage" value="souvent"> Souvent (presque tous les jours)</label><label><input type="radio" name="grignotage" value="tous_jours"> Tous les jours, plusieurs fois</label></div></div>
+<div class="fg"><label>Principalement :</label>
+<div class="cb-group"><label><input type="radio" name="grignotage_type" value="sucre"> Sucré</label><label><input type="radio" name="grignotage_type" value="sale"> Salé</label><label><input type="radio" name="grignotage_type" value="les_deux"> Les deux</label></div></div>
+<div class="fg"><label>Déclencheurs du grignotage</label>
+<div class="cb-group"><label><input type="checkbox" name="declencheur_grig[]" value="faim"> Faim réelle</label><label><input type="checkbox" name="declencheur_grig[]" value="stress"> Stress / émotions</label><label><input type="checkbox" name="declencheur_grig[]" value="ennui"> Ennui</label><label><input type="checkbox" name="declencheur_grig[]" value="fatigue"> Fatigue</label><label><input type="checkbox" name="declencheur_grig[]" value="habitude"> Habitude / rituel</label><label><input type="checkbox" name="declencheur_grig[]" value="environnement"> Environnement (collègues, famille)</label></div></div>
+</div>
+
+<!-- BLOC F -->
+<div class="bloc">
+<p class="bloc-title">F · Goûts, Rituels & Type de Plan</p>
+<p class="bloc-sub">Pour que ton plan ressemble à TA vie.</p>
+<div class="fg"><label>Aliments que tu ADORES <span class="req">*</span></label><textarea name="aliments_adores" required placeholder="Plus tu en cites, plus ton plan sera plaisir"></textarea></div>
+<div class="fg"><label>Aliments que tu DÉTESTES <span class="req">*</span></label><textarea name="aliments_detestes" required></textarea></div>
+<div class="fg"><label>Rituels alimentaires non négociables <span class="req">*</span></label><textarea name="rituels" required placeholder="Ex : mon café-tartine du matin, mon carré de chocolat le soir..."></textarea></div>
+<div class="fg"><label>Régime alimentaire spécifique <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="regime" value="aucun" required> Aucun</label><label><input type="radio" name="regime" value="vegetarien"> Végétarien</label><label><input type="radio" name="regime" value="vegan"> Végétalien / vegan</label><label><input type="radio" name="regime" value="pescetarien"> Pescétarien</label><label><input type="radio" name="regime" value="halal"> Halal</label><label><input type="radio" name="regime" value="sans_gluten"> Sans gluten</label><label><input type="radio" name="regime" value="sans_lactose"> Sans lactose</label><label><input type="radio" name="regime" value="autre"> Autre</label></div></div>
+<div class="fg"><label>Besoin de finir ton repas sur une note sucrée ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="note_sucree" value="oui" required> Oui, c'est important</label><label><input type="radio" name="note_sucree" value="parfois"> Parfois</label><label><input type="radio" name="note_sucree" value="non"> Non</label></div></div>
+<hr class="sep">
+<div class="fg"><label>Tu préfères : <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="type_plan" value="exact" required> Plan EXACT — recettes précises, je veux juste exécuter</label><label><input type="radio" name="type_plan" value="cadre"> Cadre clair avec liberté de choix</label><label><input type="radio" name="type_plan" value="principes"> Principes pour composer mes repas seule</label></div></div>
+<div class="fg"><label>Cuisiner pour toi, c'est : <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="cuisiner" value="plaisir" required> Un plaisir</label><label><input type="radio" name="cuisiner" value="corvee"> Une corvée nécessaire</label><label><input type="radio" name="cuisiner" value="stress"> Une source de stress</label><label><input type="radio" name="cuisiner" value="variable"> Ça dépend des jours</label></div></div>
+<div class="fg"><label>Tableau d'équivalences (ex : 100g riz = 100g pâtes) : <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="equivalences" value="adore" required> J'adore, ça me donne de la liberté</label><label><input type="radio" name="equivalences" value="ok"> J'apprécie, mais je préfère qu'on me guide</label><label><input type="radio" name="equivalences" value="cle_en_main"> Tu me perds — je veux du clé en main</label></div></div>
+</div>
+
+<!-- BLOC G -->
+<div class="bloc">
+<p class="bloc-title">G · Contraintes & Organisation</p>
+<p class="bloc-sub">Un plan qui ignore tes contraintes est voué à l'échec.</p>
+<div class="fg"><label>Au travail, tu manges :</label>
+<div class="cb-group"><label><input type="radio" name="repas_travail" value="tupperware"> Tupperware / repas apporté</label><label><input type="radio" name="repas_travail" value="cantine"> Cantine / restaurant d'entreprise</label><label><input type="radio" name="repas_travail" value="rapide"> Restauration rapide / sur le pouce</label><label><input type="radio" name="repas_travail" value="maison"> À la maison</label><label><input type="radio" name="repas_travail" value="pas_midi"> Je ne mange pas le midi</label></div></div>
+<div class="fg"><label>Accès cuisine au travail ?</label>
+<div class="cb-group"><label><input type="radio" name="cuisine_travail" value="tout"> Oui, tout</label><label><input type="radio" name="cuisine_travail" value="micro"> Frigo + micro-ondes</label><label><input type="radio" name="cuisine_travail" value="rien"> Rien du tout</label></div></div>
+<div class="fg"><label>Temps cuisine par jour (en moyenne) <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="temps_cuisine" value="moins15" required> Moins de 15 min</label><label><input type="radio" name="temps_cuisine" value="15-30"> 15 à 30 min</label><label><input type="radio" name="temps_cuisine" value="30-45"> 30 à 45 min</label><label><input type="radio" name="temps_cuisine" value="plus45"> Plus de 45 min</label></div></div>
+<div class="fg"><label>Prête à faire du meal prep ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="meal_prep" value="oui" required> Oui, ça me va</label><label><input type="radio" name="meal_prep" value="oui_limite"> Oui mais en quantité limitée</label><label><input type="radio" name="meal_prep" value="non"> Non, au jour le jour</label></div></div>
+<div class="fg"><label>Équipements disponibles</label>
+<div class="cb-group"><label><input type="checkbox" name="equipements[]" value="four"> Four</label><label><input type="checkbox" name="equipements[]" value="micro"> Micro-ondes</label><label><input type="checkbox" name="equipements[]" value="plaques"> Plaques de cuisson</label><label><input type="checkbox" name="equipements[]" value="blender"> Blender / mixeur</label><label><input type="checkbox" name="equipements[]" value="robot"> Robot cuiseur (Thermomix, Cookeo...)</label><label><input type="checkbox" name="equipements[]" value="airfryer"> Air fryer</label><label><input type="checkbox" name="equipements[]" value="balance"> Balance de cuisine</label></div></div>
+<div class="fg"><label>Contraintes de vie</label>
+<div class="cb-group"><label><input type="checkbox" name="contraintes[]" value="budget"> Budget alimentaire limité</label><label><input type="checkbox" name="contraintes[]" value="enfants"> Repas en famille avec enfants</label><label><input type="checkbox" name="contraintes[]" value="conjoint"> Conjoint qui ne suit pas le même plan</label><label><input type="checkbox" name="contraintes[]" value="deplacements"> Déplacements professionnels</label><label><input type="checkbox" name="contraintes[]" value="horaires"> Horaires décalés / irréguliers</label></div></div>
+<div class="fg"><label>Es-tu à l'aise pour peser tes aliments ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="peser" value="oui" required> Oui, sans souci</label><label><input type="radio" name="peser" value="proteines"> Oui, surtout protéines et féculents</label><label><input type="radio" name="peser" value="non"> Non, c'est rédhibitoire</label></div></div>
+</div>
+
+<!-- BLOC H -->
+<div class="bloc">
+<p class="bloc-title">H · Mindset & Relation à la Nourriture</p>
+<p class="bloc-sub">Tout est confidentiel. Réponds avec honnêteté — ça change tout.</p>
+<div class="fg"><label>As-tu déjà suivi des régimes ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="historique_regimes" value="jamais" required> Non, jamais</label><label><input type="radio" name="historique_regimes" value="1-2"> 1 ou 2 fois</label><label><input type="radio" name="historique_regimes" value="plusieurs"> Plusieurs fois</label><label><input type="radio" name="historique_regimes" value="enchaine"> J'enchaîne depuis des années</label></div></div>
+<div class="fg"><label>Méthodes déjà essayées</label>
+<div class="cb-group"><label><input type="checkbox" name="methodes[]" value="comptage"> Comptage calories / macros</label><label><input type="checkbox" name="methodes[]" value="jeune"> Jeûne intermittent</label><label><input type="checkbox" name="methodes[]" value="lowcarb"> Low carb / cétogène</label><label><input type="checkbox" name="methodes[]" value="ww"> Weight Watchers</label><label><input type="checkbox" name="methodes[]" value="sachets"> Comme J'aime / Dietbon</label><label><input type="checkbox" name="methodes[]" value="nutritionniste"> Nutritionniste / diététicien</label><label><input type="checkbox" name="methodes[]" value="appli"> Appli (MyFitnessPal, Yazio...)</label><label><input type="checkbox" name="methodes[]" value="restrictif"> Régime restrictif extrême</label></div></div>
+<div class="fg"><label>Qu'est-ce qui n'a PAS fonctionné ?</label><textarea name="pas_fonctionne"></textarea></div>
+<div class="fg"><label>Qu'est-ce qui A fonctionné, même temporairement ?</label><textarea name="a_fonctionne"></textarea></div>
+<hr class="sep">
+<div class="fg"><label>Ta relation à la nourriture aujourd'hui ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="relation_nourriture" value="sereine" required> Sereine — sans culpabilité</label><label><input type="radio" name="relation_nourriture" value="controlee"> Contrôlée — je me restreins souvent</label><label><input type="radio" name="relation_nourriture" value="compulsive"> Compulsive — je craque régulièrement</label><label><input type="radio" name="relation_nourriture" value="emotionnelle"> Émotionnelle — je mange selon mes émotions</label><label><input type="radio" name="relation_nourriture" value="chaotique"> Chaotique — je ne sais plus</label></div></div>
+<div class="fg"><label>Tu te sens parfois hors de contrôle face à la nourriture ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="hors_controle" value="jamais" required> Jamais</label><label><input type="radio" name="hors_controle" value="rarement"> Rarement</label><label><input type="radio" name="hors_controle" value="parfois"> Parfois</label><label><input type="radio" name="hors_controle" value="souvent"> Souvent</label><label><input type="radio" name="hors_controle" value="chaque_jour"> Quasiment chaque jour</label></div></div>
+<div class="fg"><label>Culpabilité après avoir mangé ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="culpabilite" value="jamais" required> Jamais</label><label><input type="radio" name="culpabilite" value="certains"> Avec certains aliments</label><label><input type="radio" name="culpabilite" value="souvent"> Souvent</label><label><input type="radio" name="culpabilite" value="chaque_repas"> Quasiment à chaque repas</label></div></div>
+<div class="fg"><label>TCA diagnostiqué ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="tca" value="non" required> Non</label><label><input type="radio" name="tca" value="anorexie_passee"> Anorexie (passée)</label><label><input type="radio" name="tca" value="boulimie_passee"> Boulimie (passée)</label><label><input type="radio" name="tca" value="hyperphagie"> Hyperphagie</label><label><input type="radio" name="tca" value="autre_tca"> Autre / je ne sais pas</label></div></div>
+<hr class="sep">
+<div class="fg"><label>Tu te pèses : <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="pesee" value="rarement" required> Jamais ou très rarement</label><label><input type="radio" name="pesee" value="1_semaine"> 1× par semaine</label><label><input type="radio" name="pesee" value="plusieurs_semaine"> Plusieurs fois par semaine</label><label><input type="radio" name="pesee" value="tous_jours"> Tous les jours</label><label><input type="radio" name="pesee" value="plusieurs_jour"> Plusieurs fois par jour</label></div></div>
+<div class="fg"><label>La balance influence ton humeur ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="balance_humeur" value="pas_du_tout" required> Pas du tout</label><label><input type="radio" name="balance_humeur" value="un_peu"> Un peu</label><label><input type="radio" name="balance_humeur" value="beaucoup"> Beaucoup</label><label><input type="radio" name="balance_humeur" value="enormement"> Énormément, ça peut gâcher ma journée</label></div></div>
+<hr class="sep">
+<div class="fg"><label>Heures de sommeil par nuit <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="sommeil" value="moins6" required> Moins de 6h</label><label><input type="radio" name="sommeil" value="6-7"> 6 à 7h</label><label><input type="radio" name="sommeil" value="7-8"> 7 à 8h</label><label><input type="radio" name="sommeil" value="plus8"> Plus de 8h</label></div></div>
+<div class="fg"><label>Qualité du sommeil <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="qualite_sommeil" value="excellente" required> Excellente</label><label><input type="radio" name="qualite_sommeil" value="correcte"> Correcte</label><label><input type="radio" name="qualite_sommeil" value="moyenne"> Moyenne (réveils nocturnes)</label><label><input type="radio" name="qualite_sommeil" value="mauvaise"> Mauvaise (insomnies, fatigue chronique)</label></div></div>
+<div class="row"><div class="fg"><label>Niveau de stress (1-10) <span class="req">*</span></label><input type="number" name="stress" required min="1" max="10"></div><div class="fg"><label>Niveau d'énergie <span class="req">*</span></label><select name="energie" required><option value="">Choisis</option><option value="energique">Très énergique</option><option value="correct">Correct</option><option value="fatiguee">Fatiguée régulièrement</option><option value="epuisee">Épuisée en permanence</option></select></div></div>
+<hr class="sep">
+<p style="font-size:.88rem;color:var(--tm);font-weight:400;margin-bottom:8px;font-style:italic;">Cette question n'est pas anodine. Si tu te sens vulnérable, sache que tu peux m'écrire en direct à tout moment. Tu n'es pas seule.</p>
+<div class="fg"><label>Au cours des dernières semaines, as-tu eu des pensées sombres concernant ta valeur, ton corps, ou toi-même ? <span class="req">*</span></label>
+<div class="cb-group"><label><input type="radio" name="pensees_sombres" value="non" required> Non</label><label><input type="radio" name="pensees_sombres" value="parfois"> Parfois, devant le miroir ou la balance</label><label><input type="radio" name="pensees_sombres" value="souvent"> Souvent, c'est usant</label><label><input type="radio" name="pensees_sombres" value="regulierement"> Régulièrement, et ça m'inquiète</label></div></div>
+</div>
+
+<!-- BLOC I -->
+<div class="bloc">
+<p class="bloc-title">I · Situations à Risque & Engagement</p>
+<p class="bloc-sub">Anticiper, c'est déjà réussir.</p>
+<div class="fg"><label>Dans quelles situations tu as le plus de mal ?</label>
+<div class="cb-group"><label><input type="checkbox" name="situations[]" value="travail"> Au travail</label><label><input type="checkbox" name="situations[]" value="soir_tv"> Le soir devant la TV</label><label><input type="checkbox" name="situations[]" value="weekend"> Le week-end</label><label><input type="checkbox" name="situations[]" value="soiree"> En soirée / entre amis</label><label><input type="checkbox" name="situations[]" value="restaurant"> Au restaurant</label><label><input type="checkbox" name="situations[]" value="stress"> Quand je suis stressée</label><label><input type="checkbox" name="situations[]" value="fatigue"> Quand je suis fatiguée</label><label><input type="checkbox" name="situations[]" value="ennui"> Quand je m'ennuie</label><label><input type="checkbox" name="situations[]" value="spm"> Période pré-menstruelle</label><label><input type="checkbox" name="situations[]" value="vacances"> En vacances</label></div></div>
+<div class="fg"><label>Tes principales difficultés pour atteindre ton objectif seule <span class="req">*</span></label><textarea name="difficultes" required></textarea></div>
+<hr class="sep">
+<div class="fg"><label>Ton entourage est au courant ?</label>
+<div class="cb-group"><label><input type="radio" name="entourage_courant" value="oui"> Oui, tous</label><label><input type="radio" name="entourage_courant" value="partiel"> Partiellement</label><label><input type="radio" name="entourage_courant" value="non"> Non, je le garde pour moi</label></div></div>
+<div class="fg"><label>Ton entourage te soutient ?</label>
+<div class="cb-group"><label><input type="radio" name="entourage_soutien" value="oui"> Oui, complètement</label><label><input type="radio" name="entourage_soutien" value="mitige"> Mitigé</label><label><input type="radio" name="entourage_soutien" value="non"> Non, voire saboteur</label></div></div>
+<div class="fg"><label>Ce qui te motive LE PLUS <span class="req">*</span></label>
+<div class="cb-group"><label><input type="checkbox" name="motivations[]" value="plan"> Avoir un plan structuré</label><label><input type="checkbox" name="motivations[]" value="suivie"> Être suivie et encouragée</label><label><input type="checkbox" name="motivations[]" value="comprendre"> Comprendre comment bien manger</label><label><input type="checkbox" name="motivations[]" value="yoyo"> Éviter les régimes yo-yo</label><label><input type="checkbox" name="motivations[]" value="durables"> Obtenir des résultats durables</label><label><input type="checkbox" name="motivations[]" value="recettes"> Avoir des recettes et de la variété</label><label><input type="checkbox" name="motivations[]" value="bien_corps"> Me sentir enfin bien dans mon corps</label><label><input type="checkbox" name="motivations[]" value="comptes"> Avoir quelqu'un à qui rendre des comptes</label></div></div>
+<div class="fg"><label>Autre chose d'important que je devrais savoir ?</label><textarea name="autre_info" placeholder="Déménagement, changement de travail, situation familiale, peur..."></textarea></div>
+</div>
+
+<!-- SUBMIT -->
+<div class="bloc" style="text-align:center;background:var(--rbp);">
+<p style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--td);margin-bottom:16px;">Merci pour ta confiance 💛</p>
+<p style="font-size:.9rem;color:var(--tm);font-weight:300;margin-bottom:24px;">Je vais analyser chaque réponse avec attention pour construire un accompagnement qui te ressemble vraiment.</p>
+<button type="submit" class="btn-submit">Envoyer mes informations ✨</button>
+<p class="note">Tes informations sont strictement confidentielles.<br>Elles servent uniquement à préparer ton accompagnement personnalisé.</p>
+</div>
+
+</form>
+</div>
+<footer><p>© 2026 <a href="https://nutriwellcoaching.github.io/formulaire/">NutriWell by Clémence</a> · Tous droits réservés</p></footer>
+<script>
+window.addEventListener('scroll',()=>{const p=document.getElementById('prog');const h=document.documentElement;const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;p.style.width=pct+'%'});
+</script>
+</body>
+</html>
