@@ -27,7 +27,9 @@ nav{padding:16px 40px;display:flex;justify-content:center}
 .fg label{display:block;font-size:.85rem;font-weight:500;color:var(--td);margin-bottom:5px}
 .fg label .req{color:var(--rc)}
 .fg input,.fg textarea,.fg select{width:100%;padding:11px 14px;border:1.5px solid rgba(219,99,80,.12);border-radius:10px;font-family:'Open Sans',sans-serif;font-size:.9rem;color:var(--td);background:var(--ww);outline:none;transition:border .3s}
+.fg input[type="checkbox"],.fg input[type="radio"]{width:auto;padding:0;border:none;border-radius:0;background:none}
 .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--rc);box-shadow:0 0 0 3px rgba(219,99,80,.06)}
+.fg input[type="checkbox"]:focus,.fg input[type="radio"]:focus{box-shadow:none}
 .fg textarea{resize:vertical;min-height:80px}
 .fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A7278' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
