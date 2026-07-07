@@ -55,9 +55,8 @@ footer a{color:var(--rc);text-decoration:none}
 <p>Ce formulaire est la première étape de notre collaboration. Plus tu es précise et honnête, plus ton accompagnement sera juste, personnalisé et efficace. Prends 25 minutes. Il n'y a pas de bonne ou mauvaise réponse — juste TA réalité.</p>
 </div>
 <div class="form-wrap">
-<form action="https://formspree.io/f/maqvnzrd" method="POST">
+<form id="nwForm" action="https://formspree.io/f/maqvnzrd" method="POST">
 <input type="hidden" name="_subject" value="Nouveau formulaire de démarrage NutriWell">
-<input type="hidden" name="_next" value="https://nutriwellcoaching.github.io/formulaire/merci.html">
 
 <!-- BLOC A -->
 <div class="bloc">
@@ -277,7 +276,7 @@ footer a{color:var(--rc);text-decoration:none}
 <div class="bloc" style="text-align:center;background:var(--rbp);">
 <p style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--td);margin-bottom:16px;">Merci pour ta confiance 💛</p>
 <p style="font-size:.9rem;color:var(--tm);font-weight:300;margin-bottom:24px;">Je vais analyser chaque réponse avec attention pour construire un accompagnement qui te ressemble vraiment.</p>
-<button type="submit" class="btn-submit">Envoyer mes informations ✨</button>
+<button type="submit" class="btn-submit" id="submitBtn">Envoyer mes informations ✨</button>
 <p class="note">Tes informations sont strictement confidentielles.<br>Elles servent uniquement à préparer ton accompagnement personnalisé.</p>
 </div>
 
@@ -286,6 +285,16 @@ footer a{color:var(--rc);text-decoration:none}
 <footer><p>© 2026 <a href="https://nutriwellcoaching.github.io/formulaire/">NutriWell by Clémence</a> · Tous droits réservés</p></footer>
 <script>
 window.addEventListener('scroll',()=>{const p=document.getElementById('prog');const h=document.documentElement;const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;p.style.width=pct+'%'});
+document.getElementById('nwForm').addEventListener('submit',function(e){
+e.preventDefault();
+const btn=document.getElementById('submitBtn');
+btn.textContent='Envoi en cours...';
+btn.disabled=true;
+btn.style.opacity='0.7';
+fetch('https://formspree.io/f/maqvnzrd',{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}})
+.then(r=>{if(r.ok){window.location.href='merci.html'}else{btn.textContent='Erreur — réessaie';btn.disabled=false;btn.style.opacity='1'}})
+.catch(()=>{btn.textContent='Erreur — réessaie';btn.disabled=false;btn.style.opacity='1'});
+});
 </script>
 </body>
 </html>
